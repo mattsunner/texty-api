@@ -1,20 +1,28 @@
 import nltk
+from nltk.corpus import stopwords
+
 nltk.download('punkt')
 
 
-def tokenizer(corpus: str):
-    """tokenizer: Simple text tokenizer method
+class Tokenizer:
+    def __init__(self, corpus: str):
+        self.corpus = corpus
 
-    Args:
-        corpus (str): Text corpus to be tokenized
+    def tokenizer_basic(self):
+        """tokenizer: Simple text tokenizer method
 
-    Returns:
-        List: List of corpus tokens with no other edits.
-    """
-    tokens = nltk.word_tokenize(corpus)
+        Args:
+            corpus (str): Text corpus to be tokenized
 
-    return tokens
+        Returns:
+            List: List of corpus tokens with no other edits.
+        """
+        tokens = nltk.word_tokenize(self.corpus)
+
+        return tokens
 
 
 if __name__ == '__main__':
-    print(tokenizer('Hello there, how are you?'))
+    string = 'Hello there, how are you doing?'
+    token = Tokenizer(string)
+    print(token.tokenizer_basic())
