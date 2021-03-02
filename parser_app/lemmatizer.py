@@ -1,7 +1,7 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from tokenizer import Tokenizer
+from .tokenizer import Tokenizer
 
 nltk.download('wordnet')
 
