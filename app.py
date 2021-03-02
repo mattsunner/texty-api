@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-from parser_app import tokenizer
+from parser_app import Tokenizer
 
 app = Flask(__name__)
 
@@ -10,7 +10,8 @@ def tokenize_text():
     if request.method == 'POST':
         corpus = request.form['corpus']
 
-        tokens = tokenizer(corpus)
+        token_object = Tokenizer(corpus)
+        tokens = token_object.tokenizer_no_stops()
 
         return jsonify({'Corpus': f'{tokens}'})
 
