@@ -1,7 +1,7 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from .tokenizer import Tokenizer
+from tokenizer import Tokenizer
 
 nltk.download('wordnet')
 
@@ -22,9 +22,3 @@ class Lemmatizer:
             lemma_tokens.append(result)
 
         return lemma_tokens
-
-
-if __name__ == '__main__':
-    tokens = 'Rocks and Rolls are running the town'
-    lemms = Lemmatizer(tokens)
-    print(lemms.lemmatize_text())
