@@ -35,9 +35,3 @@ class Tokenizer:
                 filtered_tokens.append(t)
 
         return filtered_tokens
-
-
-if __name__ == '__main__':
-    string = 'Hello there, how are you doing?'
-    token = Tokenizer(string)
-    print(token.tokenizer_no_stops())
