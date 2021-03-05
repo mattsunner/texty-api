@@ -9,11 +9,20 @@ app = Flask(__name__)
 def tokenize_text():
     if request.method == 'POST':
         corpus = request.form['corpus']
+        token_type = request.form['token-type']
 
         token_object = Tokenizer(corpus)
-        tokens = token_object.tokenizer_no_stops()
 
-        return jsonify({'Corpus': f'{tokens}'})
+        if token_type == 'basic':
+            tokens = token_object.tokenizer_basic()
+
+            return jsonify({'Corpus': f'{tokens}'})
+        elif token_type == 'stops removed':
+            tokens = token_object.tokenizer_no_stops()
+
+            return jsonify({'Corpus': f'{tokens}'})
+        else:
+            return jsonify({'ERROR': f'{token_type} is not a valid key.'})
 
 
 @app.route('/lemmatize', methods=['POST'])
