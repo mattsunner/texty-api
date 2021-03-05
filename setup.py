@@ -6,7 +6,7 @@ with open('README.md') as fp:
 
 
 def find_version():
-    with open('parser-app/__init__.py') as fp:
+    with open('parser_app/__init__.py') as fp:
         for line in fp:
             match = re.search(r"__version__\s*=\s*'([^']+)'", line)
             if match:
@@ -22,5 +22,5 @@ setup(
     license='LICENSE.txt',
     description='API to Perform Simple Text Pre-Processing',
     long_description=long_description,
-    packages=['parser-app']
+    packages=['parser_app']
 )
