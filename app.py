@@ -7,6 +7,15 @@ app = Flask(__name__)
 
 @app.route('/tokenize', methods=['POST'])
 def tokenize_text():
+    """tokenize_text: API POST route to tokenize text based on token type passed in to the request body.
+
+    Request Body Params:
+        corpus: string of text to tokenize
+        token_type: 'basic' or 'stops removed' are the acceptable token types to pass into the request body. All other entires will yield an error.
+
+    Returns:
+        [json]: json REST response
+    """
     if request.method == 'POST':
         corpus = request.form['corpus']
         token_type = request.form['token-type']
