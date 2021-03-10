@@ -11,7 +11,7 @@ def tokenize_text():
 
     Request Body Params:
         corpus: string of text to tokenize
-        token_type: 'basic' or 'noStops' are the acceptable token types to pass into the request body. All other entires will yield an error.
+        token_type: 'basic', 'noPunc', or 'noStops' are the acceptable token types to pass into the request body. All other entires will yield an error.
 
     Returns:
         [json]: json REST response
@@ -28,6 +28,10 @@ def tokenize_text():
             return jsonify({'Corpus': f'{tokens}'})
         elif token_type == 'noStops':
             tokens = token_object.tokenizer_no_stops()
+
+            return jsonify({'Corpus': f'{tokens}'})
+        elif token_type == 'noPunc':
+            tokens = token_object.tokenize_no_punc()
 
             return jsonify({'Corpus': f'{tokens}'})
         else:

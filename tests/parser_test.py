@@ -14,5 +14,9 @@ def test_tokenizer_no_stops():
     assert tokenizer.tokenizer_no_stops() == ['This', 'corpus', '.']
 
 
+def test_tokenize_no_punc():
+    assert tokenizer.tokenize_no_punc() == ['This', 'is', 'a', 'corpus']
+
+
 def test_lemmatize_text():
     assert lemmatizer.lemmatize_text() == ['corpus', '.']

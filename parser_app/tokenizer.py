@@ -1,5 +1,6 @@
 import nltk
 from nltk.corpus import stopwords
+from nltk.tokenize import RegexpTokenizer
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -35,3 +36,9 @@ class Tokenizer:
                 filtered_tokens.append(t)
 
         return filtered_tokens
+
+    def tokenize_no_punc(self):
+        tokenizer = RegexpTokenizer(r'\w+')
+        tokens = tokenizer.tokenize(self.corpus)
+
+        return tokens
